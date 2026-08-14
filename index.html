@@ -421,6 +421,346 @@
     ::-webkit-scrollbar { width: 3px; }
     ::-webkit-scrollbar-track { background: var(--card); }
     ::-webkit-scrollbar-thumb { background: var(--ink); border-radius: 2px; }
+
+    /* ═══════════════════════════
+       MOBILE MENU TOGGLE
+    ═══════════════════════════ */
+    .nav-menu-toggle {
+      display: none;
+      background: none; border: none;
+      font-size: 24px; cursor: pointer;
+      color: var(--ink);
+    }
+    .nav-menu-toggle.open span:nth-child(1) { transform: rotate(45deg) translateY(12px); }
+    .nav-menu-toggle.open span:nth-child(2) { opacity: 0; }
+    .nav-menu-toggle.open span:nth-child(3) { transform: rotate(-45deg) translateY(-12px); }
+    .nav-menu-toggle span {
+      display: block; width: 22px; height: 2px;
+      background: var(--ink); margin: 5px 0;
+      transition: all 0.3s ease;
+    }
+
+    /* ═══════════════════════════
+       MOBILE RESPONSIVE
+    ═══════════════════════════ */
+    @media (max-width: 768px) {
+      /* Loader adjustments */
+      .hero-word {
+        font-size: clamp(40px, 12vw, 100px) !important;
+        letter-spacing: 2px;
+        -webkit-text-stroke: 1px rgba(255,255,255,0.06);
+      }
+      .tagline {
+        font-size: clamp(9px, 2vw, 12px);
+        letter-spacing: 3px;
+      }
+
+      /* NAV — hamburger menu */
+      nav {
+        padding: 0 16px;
+        height: 56px;
+      }
+      .nav-logo {
+        font-size: 20px;
+        letter-spacing: 3px;
+      }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 56px; left: 0; right: 0;
+        flex-direction: column;
+        background: var(--bg);
+        border-bottom: 1px solid var(--border);
+        padding: 16px;
+        gap: 0;
+        list-style: none;
+        z-index: 99;
+      }
+      .nav-links.open { display: flex; }
+      .nav-links li {
+        border-bottom: 1px solid var(--border);
+        padding: 14px 0;
+      }
+      .nav-links li a {
+        font-size: 12px;
+        letter-spacing: 2px;
+        padding: 8px 0;
+        display: block;
+      }
+      .nav-menu-toggle {
+        display: block;
+      }
+      .nav-btn {
+        display: none;
+      }
+
+      /* TAB BAR */
+      .tab-bar {
+        padding: 0 12px;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+      .tab-btn {
+        padding: 12px 14px;
+        font-size: 10px;
+        letter-spacing: 1.5px;
+        white-space: nowrap;
+      }
+
+      /* SECTION */
+      .section {
+        padding: 28px 14px;
+        min-height: calc(100vh - 112px);
+      }
+
+      /* SECTION HEADER */
+      .section-header h1 {
+        font-size: clamp(28px, 6vw, 48px);
+        letter-spacing: 2px;
+      }
+      .section-header p {
+        font-size: 12px;
+      }
+
+      /* HERO BANNER */
+      .hero-banner {
+        padding: 24px 16px;
+        min-height: 200px;
+        flex-direction: column;
+        text-align: center;
+        margin-bottom: 32px;
+      }
+      .hero-banner::before {
+        right: -80px; top: -80px;
+        width: 200px; height: 200px;
+      }
+      .hero-banner-text h2 {
+        font-size: clamp(20px, 5vw, 36px);
+        line-height: 1.2;
+        margin-bottom: 10px;
+      }
+      .hero-banner-text p {
+        font-size: 12px;
+        max-width: 100%;
+        line-height: 1.6;
+        margin: 10px 0 14px;
+      }
+      .hero-banner-cta {
+        flex-direction: column;
+        gap: 8px;
+        margin-top: 16px;
+      }
+      .btn-primary, .btn-outline {
+        padding: 11px 20px;
+        font-size: 10px;
+        width: 100%;
+        border-radius: 4px;
+        min-height: 42px;
+      }
+      .hero-swoosh {
+        display: none;
+      }
+
+      /* HERO VIDEO BANNER */
+      .hero-banner-video {
+        min-height: 220px;
+      }
+      .hero-bg-video {
+        object-fit: cover;
+      }
+
+      /* FILTER BAR */
+      .filter-bar {
+        gap: 6px;
+        margin-bottom: 24px;
+        padding: 0 4px;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        flex-wrap: nowrap;
+      }
+      .filter-chip {
+        padding: 6px 14px;
+        font-size: 10px;
+        letter-spacing: 1px;
+        white-space: nowrap;
+        flex-shrink: 0;
+      }
+
+      /* PRODUCT GRID — single column on mobile */
+      .product-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      /* PRODUCT CARD */
+      .product-card {
+        border-radius: 8px;
+      }
+      .product-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 12px 24px rgba(0,0,0,0.05);
+      }
+      .product-card-badge {
+        font-size: 8px;
+        padding: 3px 8px;
+        top: 10px;
+        left: 10px;
+      }
+
+      /* 3D VIEWER */
+      .viewer-3d {
+        height: 200px;
+      }
+      .viewer-3d::before {
+        width: 120px;
+        height: 120px;
+      }
+      .viewer-3d-icon {
+        font-size: 32px;
+      }
+      .viewer-3d-label {
+        font-size: 9px;
+      }
+
+      /* PRODUCT CARD BODY */
+      .product-card-body {
+        padding: 14px 14px 16px;
+      }
+      .product-card-category {
+        font-size: 8px;
+        letter-spacing: 1.5px;
+      }
+      .product-card-name {
+        font-size: 14px;
+        letter-spacing: 0;
+        margin-bottom: 4px;
+      }
+      .product-card-desc {
+        font-size: 11px;
+        line-height: 1.5;
+        margin-bottom: 12px;
+      }
+      .product-price {
+        font-size: 16px;
+      }
+      .product-price span {
+        font-size: 11px;
+      }
+      .add-btn {
+        width: 36px;
+        height: 36px;
+        font-size: 18px;
+        flex-shrink: 0;
+      }
+
+      /* FOOTER */
+      footer {
+        padding: 24px 16px;
+        font-size: 10px;
+      }
+
+      /* PRODUCT CARD IMAGE */
+      .product-card-img {
+        height: 200px;
+        padding: 12px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      /* EXTRA SMALL PHONES */
+      nav {
+        padding: 0 12px;
+        height: 52px;
+      }
+      .nav-logo {
+        font-size: 18px;
+        letter-spacing: 2px;
+      }
+
+      /* SECTION */
+      .section {
+        padding: 20px 10px;
+      }
+
+      /* SECTION HEADER */
+      .section-header {
+        margin-bottom: 24px;
+      }
+      .section-header h1 {
+        font-size: clamp(22px, 5vw, 32px);
+        letter-spacing: 1.5px;
+      }
+      .section-header p {
+        font-size: 11px;
+      }
+
+      /* HERO BANNER */
+      .hero-banner {
+        padding: 16px 12px;
+        min-height: 180px;
+        margin-bottom: 24px;
+      }
+      .hero-banner-text h2 {
+        font-size: clamp(18px, 5vw, 28px);
+      }
+      .hero-banner-text p {
+        font-size: 11px;
+      }
+
+      /* BUTTONS */
+      .btn-primary, .btn-outline {
+        padding: 10px 16px;
+        font-size: 9px;
+        min-height: 40px;
+      }
+
+      /* PRODUCT GRID */
+      .product-grid {
+        gap: 12px;
+      }
+
+      /* PRODUCT CARD */
+      .product-card-body {
+        padding: 12px 12px 14px;
+      }
+      .product-card-img {
+        height: 160px;
+      }
+
+      /* FILTER CHIPS */
+      .filter-chip {
+        padding: 5px 12px;
+        font-size: 9px;
+      }
+
+      /* TAB BAR */
+      .tab-btn {
+        padding: 10px 10px;
+        font-size: 9px;
+      }
+
+      /* FOOTER */
+      footer {
+        padding: 16px 10px;
+        font-size: 9px;
+      }
+    }
+
+    @media (max-width: 360px) {
+      /* ULTRA SMALL DEVICES */
+      .nav-logo {
+        font-size: 16px;
+      }
+      .section {
+        padding: 16px 8px;
+      }
+      .section-header h1 {
+        font-size: clamp(20px, 4vw, 28px);
+      }
+      .hero-banner-text h2 {
+        font-size: clamp(16px, 4vw, 24px);
+      }
+    }
   </style>
 </head>
 <body>
@@ -437,12 +777,17 @@
 <div id="main-page">
   <nav>
     <div class="nav-logo">NIK<span>E</span></div>
-    <ul class="nav-links">
+    <ul class="nav-links" id="navLinks">
       <li><a href="#" class="active">Home</a></li>
       <li><a href="#">New Arrivals</a></li>
       <li><a href="#">Collections</a></li>
       <li><a href="#">About</a></li>
     </ul>
+    <button class="nav-menu-toggle" id="navMenuToggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
     <button class="nav-btn">Shop Now</button>
   </nav>
 
@@ -709,6 +1054,34 @@
 </div>
 
 <script>
+  // ── MOBILE MENU TOGGLE ──
+  (function() {
+    var toggle = document.getElementById('navMenuToggle');
+    var menu = document.getElementById('navLinks');
+    if (!toggle || !menu) return;
+
+    toggle.addEventListener('click', function() {
+      toggle.classList.toggle('open');
+      menu.classList.toggle('open');
+    });
+
+    // Close menu when link is clicked
+    menu.querySelectorAll('a').forEach(function(link) {
+      link.addEventListener('click', function() {
+        toggle.classList.remove('open');
+        menu.classList.remove('open');
+      });
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', function(e) {
+      if (!toggle.contains(e.target) && !menu.contains(e.target)) {
+        toggle.classList.remove('open');
+        menu.classList.remove('open');
+      }
+    });
+  })();
+
   // ── LOADER: Drop H-E-L-L-O letter by letter ──
   var letters = ['H','E','L','L','O'];
   var wrap = document.getElementById('heroWrap');
